@@ -69,7 +69,7 @@ padding:0;
 
 body {
 background-color:#FFFCFC;/* was fef7ee */
-color:#36260f;
+color:#33230c; /* was 36260f FLUNKING ACCESSIBILITY CONTRAST WITH BACKGROUND COLOR */
 /*  WHY SANS SERIF ?
     PLUS, RE-STATED IN LINE 271 BEFORE FIRST MEDIA QUERY ...
 font-family:'Open Sans',Montserrat,Helvetica,Verdana,Arial,sans-serif; */
@@ -120,7 +120,7 @@ width:auto;
 }
 /* ACCESSIBLE END */
 h1 {
-color:#3A2918;
+color:#7A6948;/* was orig 3A2918  */ 
 font-family:'Playfair Display',Palatino,Georgia,serif;
 font-size:2.25rem;
 font-weight:700;
@@ -238,7 +238,7 @@ figure image {
 margin:0;
 }
 figcaption {
-color:#876;
+color:#654;
 font-size:.9rem;
 font-style:normal;
 font-weight:400;
@@ -306,7 +306,7 @@ padding-left:12px;
 
 .listhead {
 border:none;
-color:#36260F;
+color:#33230c;
 line-height:1.4;
 margin:0 auto;
 padding-bottom:0;
@@ -595,7 +595,7 @@ border:1px solid #5298EE;
 }
 
 #frmtxtd {
-color:#36260F;
+color:#33230c;
 }
 
 textarea {
@@ -676,14 +676,80 @@ background:#A8DBEC;
 input#donate {
 border:none;
 background-color:transparent;}
+p, li, dt, dd, blockquote, .balanced {
+text-wrap:balance;
+text-wrap:pretty;
+}
+.balanced {
+white-space:unset;
+text-wrap:balance;
+text-wrap:pretty;
+}
+.video-container-yt { aspect-ratio: 16/9; /* Set the aspect ratio you need overflow: hidden; */ } 
+.video-container-yt iframe { width:100%; height:100%; max-width:clamp(90%, 650px, 700px) }
 
+    
 
 /* ==================================== PHONES ======================================= */
 /* WAS @media only screen and (max-width: 480px) */
 @media only screen and (min-width: 320px) and (max-width: 767px) /* ya phones */ {
+/* Hide nav list by default */
+#navlist {
+    display: none; 
+  }
+  /* Hamburger icon */
+  .hamburger {
+    background-color:#fffcfc !important;/* IMP REQUIRED BUT WHY  */
+    display: block;
+    position: absolute;
+    right:1px;
+    top:30px;
+    width: 100vw;
+    height: 48px;
+    background: url('../images/burger_50.svg');
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size:48px 48px;
+  }
+  /* Make navlist vertical overlay on click */
+#navlist.open {
+    background-color:#fffcfc;
+    display: block;
+    position: absolute;
+    top:70px;/* 41px then 70px */
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    margin-left:1em;
+    margin-right:1em;
+/*  box-shadow: 0px 48px 10px rgba(240, 240, 240, 1.0); */
+  }
+#navlist.open li {
+    background-color:#fffcfc;
+    display: block;
+    padding: 10px;
+    width: 90vw;
+   }
+#navlist li:last-child:after {
+  content: "\00a0";
+  display: block;
+  height: 20px;
+} /* INHERIT BACKGROUND COLOR */
+.wrapper {
+padding-top:29px;
+}
+#navigate {
+display:block;
+padding-top:5px;
+height:auto;
+width:100%;/*was 92px*/   
+/* border-bottom-width:10px !important; 
+border-bottom-style:solid !important; 
+border-bottom-color:#fffcfc !important;  NOT WORKING DESPITE IMP */
+}
 
 h1 {
-color: #3A2918;
+color: #7A6948;/* was orig 3A2918  */
 font: 200% 'Playfair Display',Palatino,'Palatino Linotype',Georgia,"Times New Roman",Times,serif;
 font-weight:600;
 margin: 15px 0 10px;
@@ -695,7 +761,7 @@ color:#675645;
 font-family:'Playfair Display',Palatino,Georgia,serif;
 font-size:1.2rem;
 font-weight:800;
-margin:0 0 20px 0; /* TOP R+L BOTTOM (3 values) */
+margin:0 0 12px; /* TOP R+L BOTTOM (3 values) */
 padding:0;
 text-transform:uppercase;
 }
@@ -748,6 +814,8 @@ min-height:100%;
 }
 
 body {
+background-color:#FFFCFC;
+color:#33230c;
 width:100%;
 }
 
@@ -785,14 +853,14 @@ width:98%; }*/
 
 #main {
 background-color:#fffcfc;
+color: #33230c;
 display:block;
 margin:0 0;/* 0 .1rem 0 .9rem */
 min-height:100vh;
-min-width:360px;
 overflow:hidden;
 padding:0;
 position:static;
-width:95%;
+width:100%;
 }
 
 #header {
@@ -825,7 +893,7 @@ padding-left:12px;
 
 .listhead {
 border:none;
-color:#36260F;
+color:#33230c;
 margin-bottom:0;
 }
 
@@ -837,26 +905,23 @@ figure image {
 margin:0;
 }
 figcaption {
-color:#876;
+color:#654;
 font-size:.9rem;
 font-style:normal;
 font-weight:400;
 line-height:1.2;
 text-align:center;
 }
-
 .rgt {
 float:right;
 width:auto;
 }
-
 .lft {
 float:left;
 font:100%/1 'Playfair Display',Palatino,'Palatino Linotype',serif;
 margin:0 1em 0 0;
 width:auto;
 }
-
 div.lft>p /* this as a grandfather before change to figcaption */ {
 color:#876;
 font:.9rem/1.2 'Playfair Display',Palatino,'Palatino Linotype',serif;
@@ -864,18 +929,9 @@ font-style:normal;
 font-weight:400;
 text-align:center;
 }
-
 .phcapt {
 margin-top:-.5em;
 }
-
-#navigate {
-display:block;
-overflow:hidden;
-padding-top:5px;
-width:92%;
-}
-
 #samplist {
 border-bottom:2px solid #999;
 border-left:none;
@@ -885,28 +941,32 @@ margin:0 0 1em;
 padding-left:0;
 width:98%;
 }
-
 .mbln,#gos {
 display:none;
 }
 }
 
 /* |||||||||||||||||||||||  TABLET TABLET  ||||||||||||||||||||||||||||||| */
-/* WAS @media screen and (max-width: 600px) { */
 @media only screen and (min-width: 768px) /*  TABLET  */   {
-/* h1,h3 {
-padding-left:2%;
-} */
-/*
-#article,#navigate,.lft,h3 {
-float:none; WHY NONE IF THIS IS *NOT* MOBILE DEVICES PHONES ???
-} */
+#navlist {
+display: block; /* Show navlist by default */
+width: 100%;
+}
+.hamburger {
+display: none; /* Hide hamburger icon */
+}
+#navlist {
+position: static;
+}
+#navlist li {
+display: inline-block;
+width:10.5em;
+}
 
 #header {
 background:#960;
 padding:.15em;
 }
-
 #header p {
 font-weight:700;
 letter-spacing:.4em;
@@ -918,10 +978,10 @@ width:90%;
 
 #main {
 background-color:#fffcfc;
+color: #33230c;
 height:auto;
 max-width:100%;/* was 1280px */
 min-height:100%;
-min-width:100%;
 padding-left:5%;
 overflow:hidden;
 position:relative;
@@ -929,7 +989,7 @@ width:100%;
 }/* TABLET THEN CASCADE ============= */
 
 h1 {
-color:#3A2918;
+color:#7A6948;/* was orig 3A2918  */
 font:200% 'Playfair Display',Palatino,'Palatino Linotype',Georgia,serif;
 font-weight:700;
 margin:15px 0 10px; /* TOP R+L BOTTOM */
@@ -956,7 +1016,7 @@ border-left:1px solid #D63;
 
 .listhead {
 border:none;
-color:#36260F;
+color:#33230c;
 font-size:.9rem;
 line-height:1.4;
 margin-bottom:0;
@@ -1033,7 +1093,7 @@ height:5em;
 }
 }
 
-/* WAS @media only screen and (min-width: 768px) and (max-width: 1024px) */
+
 @media only screen and (min-width: 992px) /* DESKTOPS */ {
 
 /* h1,h3 {
@@ -1060,13 +1120,12 @@ width:90%;
 
 #main {
 max-width:100%;
-min-width:100%;
 padding-left:5%;
 width:100%;
 }
 
 h1 {
-color:#3A2918;
+color:#7A6948;/* was orig 3A2918  */
 font:200% 'Playfair Display',Palatino,'Palatino Linotype',Georgia,serif;
 font-weight:700;
 margin:15px 0 10px; /* TOP R+L BOTTOM */
@@ -1093,7 +1152,7 @@ border-left:1px solid #D63;
 
 .listhead {
 border:none;
-color:#36260F;
+color:#33230c;
 font-size:.9em;
 line-height:1.4;
 margin-bottom:0;
