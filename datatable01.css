@@ -27,6 +27,26 @@ outline-offset: 0.125rem;}
 @media (prefers-reduced-motion: no-preference) {
   html {scroll-behavior:smooth;}
 }
+
+/* from Andy Bell andy-bell.co.uk\/my-favourite-3-lines-of-css */
+.flow-space-2xs{--flow-space:clamp(0.25rem,0.16rem + 0.43vw,0.5rem)}
+.flow-space-m-l{--flow-space:clamp(1.5rem,1.24rem + 1.30vw,2.25rem)}
+.flow-space-xl-2xl{--flow-space:clamp(3rem,2.48rem + 2.61vw,4.5rem)}
+.flow > * + * {
+margin-block-start: var(--flow-space, 1em);
+}
+
+/** * FLOW  tiny utility that helps with rhythm by adding margin to siblings
+ * --flow-space: The amount of space between siblings: Default 1em;  Matt Daniel Brown
+ */
+ .flow {
+  --flow-space: 1em;
+}
+.flow > * + * {
+  margin-top: 1em;
+  margin-top: var(--flow-space);
+}
+
 /* One approach is flexbox. Set the display of the BODY to flex and the flex-direction property to column to create a column layout. Then, you can set the flex-grow property of the main content ARTICLE to 1 to make it grow and fill the available space. Finally, set the flex-shrink property of the HEADER, main content ARTICLE, and FOOTER to 0 to prevent them from shrinking if there is not enough space. */
 article {
 flex-grow:1;
@@ -615,11 +635,12 @@ max-width:1080px;
 padding-left:.5em;
 text-align:left;
 }
+
 .aspRatioSizer {/* paired with contain_header */
-  display: grid;
+display: grid;
 }
 .aspRatioSizer > * {/* paired with contain_header */
-  grid-area: 1 / 1 / 2 / 2;
+grid-area: 1 / 1 / 2 / 2;
 }
 #content1 > h1 {
 margin-bottom:.15em;
@@ -636,20 +657,20 @@ width:99%;
 }
 /* === HEYDON TOOLTIP START === */
 .toggletip-container {
-  position: relative;
-  display: inline-block;
+position: relative;
+display: inline-block;
 }
 /* the bubble element, added inside the toggletip live region */
 .toggletip-bubble {
 border:2px dashed #999;
-  display: inline-block;
-  position: absolute;
-  left: 100%;
-  top: 0;
-  width:35em;
-  padding: 0.6rem;
-  background: #fdfbfa;
-  color: #333;
+display: inline-block;
+position: absolute;
+left: 100%;
+top: 0;
+width:35em;
+padding: 0.6rem;
+background: #fdfbfa;
+color: #333;
 }
 button.tooti {
 background-color:transparent;
@@ -971,6 +992,7 @@ margin:0 auto .8em 1rem;
 }
 picture {
 margin-left:1rem;
+margin-bottom:1.1em;
 }
 /* CCoyier tips start */
 img {
@@ -988,6 +1010,15 @@ img[src$=".svg"] {
   height: auto;
   max-width: none;
 }
+p, li, dt, dd, blockquote, .balanced {
+  text-wrap:balance;
+  text-wrap:pretty;
+ }
+.balanced {
+  white-space:unset;
+  text-wrap:balance;
+  text-wrap:pretty;
+  }
 /* CCoyier tips end */
 
 /* END OF NEW CSS IN TESTING ================================= */
@@ -1016,7 +1047,25 @@ body {/* FOR FOOTER on phones */
 article#main {
   flex:1 0 auto;
 }
-
+.contain_header {
+align-items:center;/* only text not background- */
+aspect-ratio:9 / 2;
+background-image:url(../images/elel_gray-light-1080-240.svg);
+background-position:left bottom;
+background-repeat:no-repeat;
+background-size:100% 100% ;
+height:auto;
+margin-bottom:1em;
+min-width:340px;
+max-height:100%;
+max-width:1080px;
+padding-left:.5em;
+text-align:left;
+}
+#content1 {
+height:auto;
+max-height:100%;
+}
 #main>.back-to-top-wrapper {
 top:350vh;/* was 500vh 2-1-23 */ /* How far scroll travel within <main> prior to link appearing */
 bottom:-30em;/* space from page bottom */
@@ -1117,6 +1166,9 @@ width:70ch;
 li {
 margin-bottom:.7em
 }
+h1, h2, h3, h4, h5 {
+line-height:1.1;
+} /* phones */
 h1 {
 font-size:3em; /* fallback */
 font-size:clamp(3.05em, 1.68vw + 2.72em, 4.73em);
@@ -1618,10 +1670,17 @@ width:95%;
 #main:focus-visible {
 outline:0;
 }/* 12-31-22 because entire main is not actionable */
-#main>p, #main>div, #main>img {
+#main>p, #main>img, #main>iframe {
 margin-bottom:var(--marbot-phon);
 margin-left:1rem;
 }
+
+#main>div {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
 #main>ol, #main>ul {/* separate from above because lists */
 margin-left:2.5rem;
 }/* TABLET */
@@ -1967,7 +2026,7 @@ width:clamp(320px, 600px, 610px);
 /* START ECKLES BACK TO TOP */
 #main>.back-to-top-wrapper {
 top:150vh;/* How far scroll travel within <main> prior to link appearing */   /* TABLET and LAPTOP */
-height:91%;/* was 95% TOO MUCH */
+height:80%;/* was 91% TOO MUCH */
  }
 /* END ECKLES BACK TO TOP */
 article>#main.content {
@@ -2011,7 +2070,7 @@ min-height:100vh;
 padding:0em 1.4em .3em 1.8em;
 text-align:left;
 }
-#main>p, #main>div, #main>img {
+#main>p, #main>div, #main>img, #main>iframe {
 margin-bottom:var(--marbot-phon);/* intro new standard esp for vertical flow on phones */
 margin-left:1rem;
 }
