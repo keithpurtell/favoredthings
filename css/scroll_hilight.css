@@ -1,0 +1,26 @@
+/**
+ * from Jason lengstorf -
+ * I saw a pen from Ryan Mulligan using GSAP’s ScrollTrigger
+ * and wanted to see if I could get something similar
+ * running with pure CSS.
+ * @see https://codepen.io/hexagoncircle/pen/gOPMwvd
+ */
+@keyframes highlight {
+	to {
+		background-position: 0;
+	}
+}
+mark {
+	animation: highlight linear forwards;
+	animation-timeline: view(60% 20%);
+	background: linear-gradient(
+		to right,
+		oklch(0.86 0.19 84.89 / 1) 50%,
+		oklch(0.86 0.19 84.89 / 0) 50%
+	);
+	background-position: 100%;
+	background-size: 200% 100%;
+	border-radius: 0.125rem;
+	padding-inline: 0.125rem;
+}
+/**********************************************/

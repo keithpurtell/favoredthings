@@ -1,0 +1,2453 @@
+:root {
+--marbot-phon:1.4em;
+--marlft-phon:.7em;
+--marlft-desk:1.4em;
+--imgbig-width-phon:clamp(50%,85%,100%);
+--btnColor:#3e68ff;
+font-size:16px;
+}
+html {
+font-size:16px;}
+/* following test starts 2-2-23 */
+html {
+font-size:clamp(1rem, 0.975rem + 0.125vw, 1.125rem);
+}/* specs min 16px max 18px | viewport size 320px - 1920px */
+/* chrisburnell DOT com\/clamp-calculator\/ */
+*, :after, :before {box-sizing:border-box;}
+/* ELEMENT MARGINS SHOULD BE REM UNTIL FIGURE OUT WHY */
+*:focus {
+outline: 0.188rem solid #000000;
+outline-offset: 0.125rem;}
+*:focus:not(:focus-visible) {
+    /* Remove focus indication when a mouse is used */
+    outline: none;}
+*:focus-visible {
+    outline: 0.188rem solid #000000;
+    outline-offset: 0.125rem;}
+@media (prefers-reduced-motion: no-preference) {
+  html {scroll-behavior:smooth;}
+}
+
+/* from Andy Bell andy-bell.co.uk\/my-favourite-3-lines-of-css */
+.flow-space-2xs{--flow-space:clamp(0.25rem,0.16rem + 0.43vw,0.5rem)}
+.flow-space-m-l{--flow-space:clamp(1.5rem,1.24rem + 1.30vw,2.25rem)}
+.flow-space-xl-2xl{--flow-space:clamp(3rem,2.48rem + 2.61vw,4.5rem)}
+.flow > * + * {
+margin-block-start: var(--flow-space, 1em);
+}
+
+/** * FLOW  tiny utility that helps with rhythm by adding margin to siblings
+ * --flow-space: The amount of space between siblings: Default 1em;  Matt Daniel Brown
+ */
+ .flow {
+  --flow-space: 1em;
+}
+.flow > * + * {
+  margin-top: 1em;
+  margin-top: var(--flow-space);
+}
+
+/* One approach is flexbox. Set the display of the BODY to flex and the flex-direction property to column to create a column layout. Then, you can set the flex-grow property of the main content ARTICLE to 1 to make it grow and fill the available space. Finally, set the flex-shrink property of the HEADER, main content ARTICLE, and FOOTER to 0 to prevent them from shrinking if there is not enough space. */
+article {
+flex-grow:1;
+}
+header, article, footer {
+flex-shrink:0;
+}
+figure {
+display:table;
+margin-block-start:0;
+margin-block-end:0;
+margin-inline-start:0;
+margin-inline-end:0;
+}
+figcaption {
+display:table-caption;
+caption-side:bottom;
+width:100%;
+}
+html,body {/* NO POSITION, HEIGHT, DISPLAY, OVERFLOW, ORDER, ETC */
+margin:0;
+padding:0
+}
+body {
+font-size:clamp(1rem, 0.13vw + 0.97rem, 1.13rem);
+padding-bottom:.3rem;
+overflow-x:hidden;
+}
+thead, tbody {
+border:1px solid #aaa;
+width:100%;
+}
+thead tr {
+width:100%;
+}
+tbody tr {
+width:100%;
+}
+td {
+border:1px solid #aaa;
+}
+/* VERTICAL SPACE AND HEIGHT GLITCH */
+table#hei_01 {
+/* height measured on desktop in Chrome 4648.950px (), OR 4320px (270em) in Chrome phone mode dev tools */
+margin-bottom:var(--marbot-phon);
+}
+h1,h2,h3,h4,h5,.h3_fake {
+font-family:"Roboto Slab", sans-serif;
+}
+.h4_faux {
+font-family:"Roboto Slab", sans-serif;
+font-size:clamp(1.56em, 0.44vw + 1.48em, 2em);
+font-weight:600;
+line-height: 1.3;
+margin:.9rem 1rem 1rem 1rem;
+width:clamp(75%, 90%, 95%);
+max-width:47ch;
+}
+.h3_cel_rev {
+color:#fefefe;
+display:inline;
+}
+/* REVERSE COLOR HEADLINES */
+.header_empcon h1,.header_empcon h2,.header_empcon h3,.header_empcon h4,.header_empcon h5,.header_empcon .h3_fake {
+ color:#fefefe;margin-top:.1em;
+  }
+/* TARGETED PAGES H2 STYLE */
+span.trggradient {
+  font-size:inherit;
+  background:-webkit-linear-gradient(45deg, #f11, #33f 80%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}  
+/* @supports div:has() {
+div:has(.header_empcon) {
+  color:#f00;
+}
+div:has(h2) {
+  color:#66f;
+}
+} */
+div.item-0.header_empcon {
+font-weight:800;
+}
+p {
+/* line-height:1.4em; */ /* set at body level? */
+margin:.5em auto var(--marbot-phon) 1em;/* standard marg bott esp for vert flow on phones */
+max-width:96vw;
+width:70ch; /* was 80 */
+padding-bottom:0.6em;
+} /* make sure what follows is style for p inside table cells */
+td p, div p { /* div p and width max-width needs work */
+/*line-height:1.4em;*/ /* set at body level? */
+max-width:100%;
+width:70ch; /* was 80 */
+}
+ol,ul {
+/*line-height:1.4em;*/ /* set at body level? */
+margin:1em .5em var(--marbot-phon) 1.6em;
+max-width:96vw;
+width:70ch; /* was 80 */
+padding:0 .5em 0 .3em
+}/* for desktop and tablet */
+li {
+margin-bottom:.7em
+}
+.listnobull {
+list-style:none;
+}
+pre {
+margin-bottom:var(--marbot-phon);
+margin-left:1em;
+white-space:-moz-pre-wrap;
+white-space:-pre-wrap;
+white-space:-o-pre-wrap;
+white-space:pre-wrap;
+word-wrap:break-word;
+}
+li>pre {
+display:inline;
+font-family:monospace;
+font-size:.9em;
+font-weight:800;
+margin:1em 0px;
+white-space: -moz-pre-wrap;
+white-space: -pre-wrap;
+white-space: -o-pre-wrap;
+white-space: pre-wrap;
+word-wrap: break-word;
+}
+.allcaps {
+text-transform:capitalize;
+}
+#timedFrom {
+padding:inherit;
+}
+.ital {
+font-style:italic;
+}
+.normal {
+font-style:normal;
+}
+.justblue {
+color:#0000DD
+}
+.justblurev {
+color:#7799EE
+}
+.justred {
+color:#CC0000;
+}
+.justgray {
+color:#AAAAAA;
+}
+.bgyellow {
+background-color:#FF9;
+}
+.bgred {
+background-color:#FBB;
+}
+.htent {
+font-family:'Century Gothic','MS Sans Serif','Segoe UI',Consolas,Calibri,sans-serif;
+}
+p,li,h1,h2,h3,h4 {
+-ms-hyphens:manual;
+-webkit-hyphens:manual;
+hyphens:manual;
+}
+div.flx-itm h3 {
+margin-inline-start:0px;
+margin-left:0.15em; /* mobile */
+}
+figure {
+display:table;
+margin-bottom:var(--marbot-phon);/* standard marg bott esp for vert flow on phones */
+}
+figcaption {
+display:table-caption;
+caption-side:bottom;
+bottom:4px;
+-webkit-hyphens: auto;
+-moz-hyphens:auto;
+hyphens:auto;
+font-size:.9em;
+font-style:italic;
+position:relative;
+text-align:center;
+width:100%;
+}
+/* figcaption span {
+color:#bbb;
+} COME BACK TO THIS IDEA FOR SOME PHOTO CREDITS?  */
+figure img {
+height:auto;
+max-width:100%;
+}
+table {
+border-collapse:collapse;
+max-width:100%;
+page-break-inside:auto;
+}
+tr {
+page-break-after:auto;
+page-break-inside:avoid
+}
+table,td,th {
+font-size:inherit
+}
+table td,table th {
+border:1px solid #aaa;
+padding:.375em .365em .375em .395em;
+text-align:left
+}
+table tr td:nth-child(1) {
+font-family:sans-serif;
+font-weight:600;
+padding:.8em;
+vertical-align:top
+}
+.lefrit-l {
+background-color:#EAF2FB;
+padding:.5em;
+text-align:left
+}
+.lefrit-l-b {
+background-color:#F6FCF4;
+padding:clamp(.05em, .4em, .8em);
+text-align:left;
+}
+.video_yt .item-1.lefrit-l-b { /* kind of a kludge for video box */
+background-color:transparent;
+padding-bottom:0;
+padding-top:clamp(.05em, .4em, .8em);
+padding-left: 0;
+padding-right: 0;
+text-align:left;
+}
+.lefrit-r {
+background-color:#FDD;
+padding:.5em;
+text-align:right
+}
+table tbody tr td .lefrit-l .fwexcept {
+font-weight:500
+}
+table tr td:nth-child(1) {
+font-weight:500;
+padding:.8em;
+}
+.fwexcept {
+font-weight:500
+}
+.quotebig {
+color:#bbb;
+font-family:Georgia,"Times New Roman",Times,serif;
+font-size:7em;
+font-weight:bold
+}
+blockquote.fulw {
+background-color:#eee;
+color:#375c9d;
+font-family:Arial,"Helvetica Neue",Helvetica,sans-serif;
+font-style:italic;
+margin:1.1em 1.5em .9em 2rem;
+padding:.6em;
+width:75%
+}
+blockquote.fulw::before {
+content:"\201C";
+display:block;
+font-size:4em;
+font-weight:800;
+height:0;
+left:-40px;
+position:relative;
+top:-40px
+}
+blockquote.fulw::after {
+content:""
+}
+.sanserif {
+font-family:sans-serif
+}
+.bgoffwhite {
+background-color:#fefefe;
+padding:.6em .1em .6em .6em
+}
+.agr-grid .video_ctr {
+margin:0 auto;
+overflow:clip;/* was hidden */
+padding-bottom:calc(var(--aspect-ratio,.5625) * 100%);
+position:relative
+}
+.agr-grid .video_ctr iframe {
+display:block;
+height:100%;
+left:0;
+position:absolute;
+top:0;
+width:100%
+}
+#main > .agr-grid > div > p {
+margin:.6em .5em;
+}
+/* START OF NEW CSS IN TESTING ============================== */
+nav, article {
+margin:0 0 1em 0;
+  padding:0;
+  width:99%;
+  }
+header {
+background-color:transparent;
+margin:0;/* 0 1em 0 clamp(.1em, .4em, .8em) */
+max-width:100%;
+padding:0;
+width:99%;
+  }
+#page>header> h1 {
+font-family:'Roboto Slab', serif;
+font-weight:600;
+margin:.12em auto .21em .01em;
+  }
+#page>header> h2 {
+font-family:'Roboto Slab', serif;
+font-weight:600;
+margin:.1em auto .25em .01em;
+  }
+#top > p.ital.plusdate {
+background-color:#777;
+color:#eee;
+font-weight:600;
+margin:0 0 .4rem;
+max-width:1080px;
+padding:0.3rem;
+width:100%;
+/* width:clamp(90%, 94%, 70ch */
+}
+#page>header>.datetime {
+font-family:'Courier New',monospace;
+font-size:.85em;
+font-weight:700;
+margin-bottom:.1em;
+}
+#page>#main>.font_mono, #page .font_mono, #main>.font_mono {
+font-family:'Courier New',monospace;
+font-size:.95em;
+font-weight:600;
+}
+
+body, article {
+  font-family:sans-serif;}
+.strike {text-decoration:line-through;}
+/* div.irs {filter:invert(22%) sepia(49%) saturate(2556%) hue-rotate(184deg) brightness(101%) contrast(99%);}filter for svg only */
+.irs {
+  position:relative;
+  width:70ch; /* was 80 */
+  max-width:96vw;
+  background-image:url("../techjobfiles/IRS-logo.webp");
+  background-repeat:no-repeat;
+  background-size:contain;
+}
+.irs > * {
+position:relative;
+z-index:10;
+}
+.irs::after {
+background-color:rgba(255, 255, 255, .3);
+content:"";
+display:block;
+width:100%;
+height:100%;
+position:absolute;
+top:0;
+left:0;
+z-index:0;
+/* OR mix-blend-mode youtube.com/watch?v=SXQ9l0ScDEA */
+}
+.tmpbg {
+  color:#333;
+  font-weight:600;
+  margin-bottom:1.5em;
+  margin-top:0.5em;
+  width:70ch; /* was 80 */
+  max-width:98%; /*  */
+  min-width:40ch;
+  padding-bottom:0.6em;
+  position:relative;
+}
+.tmpbg strong {color:#dd0000;}
+/* card-sidebar experiment */
+.with-card-sidebar {
+  display:flex;
+  flex-wrap:wrap;
+  gap:1em;
+}
+.card-sidebar {
+  flex-basis:clamp(20ch, 33.333%, 100%);
+  flex-grow:1;
+}
+.with-card-sidebar > :last-child {
+  flex-basis:0;
+  flex-grow:999;
+  min-inline-size:50%;
+}
+/* ============= START OF SHOW HIDE ACCORDION ====================== */
+#main>details, #main details {
+margin:0 .7rem var(--marbot-phon) 2rem;/* VAR is for vertical flow on phones */
+width:90%;/* ? */
+}
+#main details {
+background: transparent;
+box-sizing: border-box;
+margin-top: 5px;
+max-width:70ch;
+width:clamp(300px, 100%, 600px);
+}
+#main details summary, #main details summary * {
+cursor:pointer;
+}/* IMPORTANT */
+#main details summary > * {/* CONTENTS of summary are inline NOT the summary itself */
+  display:inline;
+}/* IMPORTANT */
+#main details summary:hover {
+background-color:#EFEFEF;
+}
+#main details summary:active {
+background-color:#CEDFFF;
+}
+#main summary {
+background: transparent;
+display:list-item;
+padding:.25em;
+max-width:91vw;
+text-decoration:underline;
+width:65ch; /* was 80 */
+}/* PHONES */
+/* details summary::-webkit-details-marker NOT USEFUL */
+#main details .content_acc figcaption {
+-webkit-hyphens: auto;
+-moz-hyphens:auto;
+display:block;
+hyphens:auto;
+width:100%;
+}
+#main>summary::before {/* adding greater-than combinator got rid of phantom marker at page top */
+content: "";
+display:list-item;
+position: absolute;
+left: 1em;
+top:.65em;
+transform: rotate(0);
+transform-origin: 0.2em 50%;
+transition: 0.25s transform ease;
+  }
+#main>details[open] > summary::before {
+transform: rotate(90deg);
+transition: 0.25s transform ease;
+  }
+#main>details[open] summary {
+  text-decoration:none;
+  }
+#main > details > summary::-webkit-details-marker, #main > details > summary::marker, #main > details > summary::before {
+text-decoration:none;
+}/* added for Firefox */
+details[open] {
+  --bg: rgb(0 0 0 / 0.2);
+  background: var(--bg);
+  margin: 0 0 2rem 2em;
+  border: .5rem solid var(--bg);
+}/* Coyier idea  */
+#main details summary .content_acc {
+border-top: none;
+padding:0 10px 10px 10px;
+  }/* ======================== END OF SHOW HIDE ACCORDION */
+td p, div p {
+/*line-height:1.4em;*/ /* set at body level? */
+margin-bottom:var(--marbot-phon);/* intro new standard esp for vertical flow on phones */
+}
+header, #main {
+margin-bottom:var(--marbot-phon);/* intro new standard esp for vertical flow on phones */
+}
+#main>p, #main>div, #main>ol, #main>ul, #main>blockquote, #main>img {
+margin-bottom:var(--marbot-phon);/* intro new standard esp for vertical flow on phones */
+}
+.img-big {/* bigger image with nothing on left or right */
+width:90%;
+height:auto;
+}
+#main table tr td h1:first-of-type,
+#main table tr td h2:first-of-type,
+#main table tr td h3:first-of-type {
+margin-top:0;
+padding-top:0;
+}
+#main div h1:first-of-type,
+#main div h2:first-of-type,
+#main div h3:first-of-type {
+margin-top:0;
+padding-top:0;
+}
+img.responsive {
+height:auto;
+max-width:100%!important;
+}
+.resp-830-466 {
+aspect-ratio:830 / 466;
+width:clamp(50%, 95%, 830px);
+}
+figure.resp-812-467 {
+aspect-ratio:812 / 467;
+margin-left:1em;
+margin-right:1em;
+padding:0;
+width:clamp(45%, 90%, 812px);
+}
+.resp-1000-743 {
+aspect-ratio:1000 / 743;
+width:clamp(34%, 95%, 1000px);
+}
+.tmpPageGone {
+border:2px solid #eeaaaa;
+aspect-ratio:320 / 361;
+}
+.aspr600-750,
+.aspr600-750 > figure,
+.aspr600-750 > figure > iframe,
+#main > details > div > figure > iframe {
+aspect-ratio:4 / 5;
+display:block;
+width:100%;
+}
+.aspr425-348 {
+aspect-ratio:425 / 348;
+}
+.aspr138-138 {
+aspect-ratio:138 / 138;
+}
+.aspr1-1 {
+aspect-ratio:1 / 1;
+width:clamp(150px,180px,250px);
+}
+.aspr40-19 {
+aspect-ratio:40 / 19;
+}
+.aspr650-353 {
+aspect-ratio:650 / 353;
+}
+.aspr9-2 {
+aspect-ratio:9 / 2;
+}
+.aspr16-9 {/* youtube etc */
+aspect-ratio:16 / 9;
+width:100%;
+}
+.video_yt {/* youtube etc */
+max-width:900px;
+min-width:340px;
+}
+.agr-grid.video_yt {
+border:0;
+}
+article, section {
+border: 0;
+line-height: inherit;
+margin: 0;
+padding: 0;
+width: auto;
+}
+section.blu {
+background-color:#daeafa;
+margin-bottom:1.5rem;/* my rule that general containers use rem but elements use em */
+margin-left:1rem;
+width:inherit;
+}
+.contain_header {
+align-items: center;/* only for text does not effect background- */
+aspect-ratio:9 / 2;
+background-image: url(../images/elel_gray-light-1080-240.svg);
+background-position:left bottom;
+background-repeat: no-repeat;
+background-size:100% 100% ;
+height:auto;
+margin-bottom:1em;
+min-width:340px;
+max-width:1080px;
+padding-left:.5em;
+text-align:left;
+}
+
+.aspRatioSizer {/* paired with contain_header */
+display: grid;
+}
+.aspRatioSizer > * {/* paired with contain_header */
+grid-area: 1 / 1 / 2 / 2;
+}
+#content1 > h1 {
+margin-bottom:.15em;
+margin-top:.15em;
+}
+#content1 > h2 {
+margin-bottom:.3em;
+margin-top:.3em;
+}
+div#content1 {
+margin:0;
+padding:0;
+width:99%;
+}
+/* === HEYDON TOOLTIP START === */
+.toggletip-container {
+position: relative;
+display: inline-block;
+}
+/* the bubble element, added inside the toggletip live region */
+.toggletip-bubble {
+border:2px dashed #999;
+display: inline-block;
+position: absolute;
+left: 100%;
+top: 0;
+width:35em;
+padding: 0.6rem;
+background: #fdfbfa;
+color: #333;
+}
+button.tooti {
+background-color:transparent;
+border: 0;
+color: #333;
+font-family:inherit;
+font-weight: bold;
+height: 2em;
+padding:.2em .1em .1em .1em;
+width:8em;
+}
+/* === HEYDON TOOLTIP END === */
+/* === ACCESSIBLE START === */
+.visible-on-focus {
+position:absolute;
+left:-10000px;
+top:auto;
+width:1px;
+height:1px;
+}
+.visible-on-focus:active, .visible-on-focus:focus {
+border:none;
+/* Visible in the full-color space */
+box-shadow:0px 0px 3px 3px rgba(0,123,255,1);
+/* Visible in Windows high-contrast themes */
+outline-color:transparent;
+outline-width:3px;
+outline-style:dotted;
+position:relative;
+width:auto;
+height:auto;
+left:auto;
+color:blue;
+font-family:sans-serif;
+font-size: 1.5em;
+font-weight:600;
+line-height:inherit;
+}
+/* ACCESSIBLE END */
+pre {
+line-height:inherit;
+}
+.insertnote {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;/* was nowrap */
+justify-content: flex-start;
+align-content: center;
+align-items:flex-start;/* was center */
+/*  */
+background-color: #FEFEFE;
+border: 8px dashed #AAA;
+color: #111;
+height: auto;
+max-width: 100%;
+overflow:auto;
+padding:1em 1.3em .6em 1.2em;
+width: 66ch;
+}
+.insertnote > p {
+flex: 0 0 auto;
+margin:0;
+}
+#irs_analysis.insertnote > div {
+width:100%;
+}
+span.bold700 {/* temp to diagnose strong weirdness in flex */
+font-weight:700;
+}
+hr {
+background-color:rgba(0, 0, 0, 0.75);
+border:0;
+display:block;
+height:5px;
+margin:4em 1em 2em 0;
+width:92%;
+}
+/* button style */
+a.button, button.button {
+  font-size: 1.2rem;
+}
+a.button {
+  text-decoration: none;
+}
+button.button {
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  padding: 0;
+  cursor: pointer;
+}
+@media screen and (-ms-high-contrast: active) {
+  button.button {
+    border: 2px solid currentcolor;
+  }
+}
+a.button, button.button {
+  display: inline-flex;
+  align-items:center;
+  justify-content: center;/* or flex-start or left perhaps */
+  align-self: start;
+  background-color:var(--btnColor);
+  color: #fefefe;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+  padding: 0.25em 0.75em;
+  min-width: 10ch;
+  min-height: 44px;
+  text-align: center;
+  line-height: 1.1;
+  transition: 220ms all ease-in-out;
+}
+a.button:hover, a.button:active, button.button:hover, button.button:active {
+  background-color: #dc0033;
+}
+a.button:focus, button.button:focus {
+  outline-style: solid;
+  outline-color: transparent;
+  box-shadow: 0 0 0 4px #0029be;
+}
+a.button--small, button.button--small {
+  font-size: 1.15rem;
+}
+a.button--block, button.button--block {
+  width: 100%;
+}
+/* END BUTTON STYLE [ in part from smol eckles ] */
+.imgContainer {
+width:300px;
+height:311px;
+transition-duration: .5s;
+}
+img#vry {
+height: 100%;
+width: 100%;
+}
+.toggleSize {
+width: 896px;
+height: 930px;
+overflow:clip;/* was hidden */
+transition-duration: .5s;
+}
+.inbl {
+display:inline-block;
+margin-top:.5em;
+}
+nav {
+display:inline;
+font-size:.01rem;
+line-height:.02rem;
+}
+[data-timer] b {
+  color:#CC0000;
+}
+p:hover, li:hover {
+background-color:#f7f7f7;/* #eee */
+}
+/*:target {
+outline: 3px solid red;
+scroll-margin-top:15px;
+scroll-padding-top:15px;
+}*/
+div#irs_analysis:target {
+outline: 3px solid red;
+scroll-margin-top:180px;
+scroll-padding-top:15px;
+}
+span, strong {
+font-size:inherit;
+}
+#additions > tbody td.lefrit-l > p:nth-child(1) {
+margin-top:0;
+}
+tbody td.lefrit-l > h1, tbody td.lefrit-l > h2, tbody td.lefrit-l > h3 {
+line-height:1.0;
+}
+#the-canvas {
+  border: 1px solid black;
+  direction: ltr;
+}
+.websource {
+border:1px solid #aaa;
+border-top:none;
+color:gray;
+font-style:italic;
+margin-top:-.7em;
+padding:.4em;
+text-align:center;
+}
+.up {
+font-size:2em;
+}
+#pagetop a {
+color:#069;
+background-color:transparent;
+display:block;
+font-size:1rem;
+font-weight:100;
+margin:3em auto;
+padding:1em;
+text-align:center;
+width:12em;
+}
+#pagetop a:active,#pagetop a:hover {
+background-color:rgba(11, 11, 200, .1);
+color:#036;
+}
+.backhome {
+background-color:#0055bd;
+border-radius:3px;
+color:#efefef;
+margin:.4em;
+padding-bottom:.6em;
+padding-top:.2em;
+text-align:center;
+width:96%;
+}
+.backhome a:link, .backhome a:visited {
+color:#efefef;
+font-family:sans-serif;
+font-weight:700;
+margin:0;
+padding:0;
+width:100%;
+}
+.backhome a:hover, .backhome a:active {
+color:#efefef;
+}
+span.houhom {
+font-size:1.4em;
+font-weight:bolder;
+line-height:1.3em;
+}
+.backhome a::before {display:none;}
+.mar_less p {
+margin-bottom:0;
+margin-top:0;
+}
+/* ==== START ECKLES BACK-TO-TOP ==== */
+@media (prefers-reduced-motion: no-preference) {
+  html {scroll-behavior:smooth;}
+}
+#main {
+/*height:8400px;*//* sticky element will not have place to stick if parent's height is not set. */
+padding:0em 3em;
+position:relative;
+max-width:50rem;
+margin:2rem auto;}
+/* SEckles-- clears margin if last element is a block item*/
+#main *:last-child {
+  margin-bottom:0;
+}
+
+#main>.back-to-top-wrapper {
+display:block;
+position:absolute;
+top:350vh;/* was 500vh 2-1-23 */ /* How far scroll travel within <main> prior to link appearing */
+right:0.25rem;
+bottom:-20em;/* space from page bottom */
+height:91%;/* was 95% TOO MUCH */
+width:3em;
+pointer-events:none;
+padding-bottom:.4em;/* KP */
+}/* overall before media query */
+.back-to-top-link {/* KP html entity */
+color:#FEFEFE;
+font-size:2em;
+font-weight:700;
+}
+.back-to-top-link {
+position:fixed;
+position:-webkit-sticky; /* Safari */
+position:-moz-sticky;
+position:-ms-sticky;
+position:-o-sticky;
+position:sticky;
+pointer-events:all;
+top:calc(100vh - 5rem);
+display:inline-block;
+align-self:flex-start;/* IN CASE AN ANCESTOR IS DISPLAY FLEX */
+text-decoration:none;
+line-height:2.1rem;/* KP */
+text-align:center;
+width:3rem;
+height:3rem;
+border-radius:50%;
+padding:0.25rem;
+border:1px solid rgba(37, 69, 104, .6);
+background-color:rgba(30, 30, 30, .2);/* KP */
+transition:transform 200ms ease-in;
+}
+.back-to-top-link:hover, .back-to-top-link:focus {
+transform:scale(1.1);
+border:1px solid rgba(37, 69, 104, .9);
+background-color:rgba(30, 30, 30, .7);/* KP */
+transition:transform 200ms ease-in;
+}
+.back-to-top-link:focus {
+outline:none;
+box-shadow:0 0 0 3px #4e85c0;
+} /* ==== END S ECKLES BACK-TO-TOP ==== */
+.mystory {
+background-color:#fefefe;
+border:none;
+display:none;
+margin:0;
+padding:0 1.3em 0 .7em;
+width:100vw;
+}
+.mystory * {
+color:#333;
+}
+.cite_source {
+color:#aaa;
+font-size:1em;
+font-style:italic;
+font-weight:600;
+margin:0 auto .8em 1rem;
+}
+picture {
+margin-left:1rem;
+margin-bottom:1.1em;
+}
+/* CCoyier tips start */
+img {
+  max-width: 100%;
+}
+img[width] {
+  width: auto; /* Defer to max-width */
+}
+img[width][height] {
+  height: auto; /* Preserve aspect ratio */
+}
+/* Let SVG scale without boundaries */
+img[src$=".svg"] {
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+p, li, dt, dd, blockquote, .balanced {
+  text-wrap:balance;
+  text-wrap:pretty;
+ }
+.balanced {
+  white-space:unset;
+  text-wrap:balance;
+  text-wrap:pretty;
+  }
+/* CCoyier tips end */
+
+/* END OF NEW CSS IN TESTING ================================= */
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {/* ya phones */
+body {
+background-color:#fefefe;
+color:#333;
+font-family:Georgia,serif;
+font-size:clamp(1em,1.3vw,2em);
+font-weight:500;
+line-height:1.4;
+place-content:center;
+scroll-behavior:smooth;
+text-rendering:optimizeLegibility;
+width:100%
+}
+body {/* FOR FOOTER on phones */
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:100vh;
+}
+article#main {
+  flex:1 0 auto;
+}
+.contain_header {
+align-items:center;/* only text not background- */
+aspect-ratio:9 / 2;
+background-image:url(../images/elel_gray-light-1080-240.svg);
+background-position:left bottom;
+background-repeat:no-repeat;
+background-size:100% 100% ;
+height:auto;
+margin-bottom:1em;
+min-width:340px;
+max-height:100%;
+max-width:1080px;
+padding-left:.5em;
+text-align:left;
+}
+#content1 {
+height:auto;
+max-height:100%;
+}
+#main>.back-to-top-wrapper {
+top:350vh;/* was 500vh 2-1-23 */ /* How far scroll travel within <main> prior to link appearing */
+bottom:-30em;/* space from page bottom */
+height:96%;/* was auto 2-1-23 */
+}/* PHONES */
+
+footer.footer {
+height:48px;
+margin:0;
+padding:1em 0.7em 1em 0.2em;
+text-align:center;
+width:100%;
+}
+footer div.copyright {
+color:#333;
+font-size:.85em;
+margin: 0 auto;
+}
+/* FOR FOOTER on phones */
+article,section {
+border:0;
+line-height:inherit;
+margin:0;
+padding:0;
+width:auto;
+}
+section.blu {
+background-color: #daeafa;
+margin:0 1.4rem 1.5rem .4rem;
+padding:.3em;
+width: inherit;
+}
+#main {
+background-color:transparent;
+margin:0 auto 0 var(--marlft-phon);
+min-width:360px;
+padding:0;
+width:95%;
+}
+#main:focus-visible {
+outline:0;
+}/* 12-31-22 because entire main is not actionable */
+p {
+line-height:1.3em;
+margin:.5em .25em var(--marbot-phon) 0em;/* standard marg bott esp for vert flow on phones */
+max-width:92vw;
+padding:0 .01em 0.6em 0;
+width:70ch;
+}           /* PHONES */
+#main > blockquote > p {
+margin:.5em 0 var(--marbot-phon);
+}
+#main > p.timeflex {
+max-height:9em;
+overflow:clip;/* was hidden */
+}
+#main>details, #main details {
+margin: 0 0.7rem var(--marbot-phon) 0;/* 2rem */
+width: 96%;
+}
+#main summary {
+max-width:100%;
+}
+#main>table {
+margin-bottom:var(--marbot-phon);/* standard marg bott esp for vert flow on phones */
+margin-left:0em;/* .07 */
+margin-right:.15em;
+max-width:100%;
+min-width:96%;
+}
+#main>figure {
+margin-bottom:.6em;
+margin-left:0em;/* .07 */
+margin-right:.65em;
+max-width:100%;
+}/* PHONES */
+td p, div p {
+margin:.5em .7em var(--marbot-phon) 0;/* .1em */
+max-width:70ch;
+width:96%;
+}   /* PHONES */
+#main > div.agr-grid.video_yt > div > p {
+width:100%;
+}
+
+#main>.aspr300-169 {
+aspect-ratio:300 / 169;
+width:clamp(38%, 97%, 97%);
+}/* phones */
+
+ol,ul {
+line-height:1.3em;
+margin:1em 1em var(--marbot-phon) 1.6em;
+max-width:86vw;
+padding:0 0 0 .2em;
+width:70ch;
+} /* PHONES */
+li {
+margin-bottom:.7em
+}
+h1, h2, h3, h4, h5 {
+line-height:1.1;
+} /* phones */
+h1 {
+font-size:3em; /* fallback */
+font-size:clamp(3.05em, 1.68vw + 2.72em, 4.73em);
+font-weight:600;
+margin:.9em auto 1rem 0;/* .3em */
+width:96%;
+} /* PHONES */
+h2 {
+font-size:2.5em; /* fallback */
+font-size:clamp(2.44em, 1.11vw + 2.22em, 3.55em);
+font-weight:600;
+margin:.9em auto 1rem 0;/* .3em */
+width:96%;
+} /* PHONES */
+h3 {
+font-size:2em; /* fallback */
+font-size:clamp(1.95em, 0.71vw + 1.81em, 2.66em);
+font-weight:600;
+margin:.9rem auto 1rem 0;/* .3em */
+width:96%;
+} /* PHONES */
+p.h3_fake {
+font-size:2em; /* fallback */
+font-size:clamp(1.95em, 0.71vw + 1.81em, 2.66em);
+font-weight:600;
+line-height:1.2em;
+margin:0.7em 0em 0.7em 0em;
+padding:0;
+width:96%;
+} /* PHONES */
+h1.deck, h2.deck, h3.deck, h4.deck {
+font-weight:600;
+margin:.01em auto .25em 0;/* .25em */
+width:96%;
+}/* immediately preceded by smaller 'kicker' faux headline actually a div because order of headlines */
+.kicker {
+font-size:1em;
+margin:auto auto 0em 0;/* .55em */
+text-transform:capitalize;
+width:96%;
+}
+h4 {
+  font-size:1.5em; /* fallback */
+  font-size:clamp(1.56em, 0.44vw + 1.48em, 2em);
+font-weight:600;
+margin:.9em auto 1rem 0;/* .3em */
+width:96%;
+} /* PHONES */
+.cite_source {
+color:#aaa;
+font-size:1em;
+font-style:italic;
+font-weight:600;
+margin:0 auto .8em 0;
+}
+h5 {
+font-size:1.25em; /* fallback */
+font-size:clamp(1.25em, 0.25vw + 1.2em, 1.5em);
+font-weight:600;
+margin:.9em auto 1rem 0;/* .3em */
+width:96%;
+} /* PHONES */
+#main div.kicker {
+font-size:clamp(1.25rem, 0.25vw + 1.2rem, 1.5rem);
+font-weight:600;
+margin:.9rem auto .01rem 0;/* .55em */
+width:96%;
+} /* PHONES */
+.rgt {
+float:right;
+margin:.2em 0 0 .8em;
+max-width:100%;
+padding:0;
+/* width:60%; */
+}
+.lft {
+float:left;
+margin:.2em .8em 0 0;
+max-width:100%;
+padding:0;
+/* width:60%; */
+}
+body >.agr-grid {
+max-width:99%;
+}
+
+picture {
+margin-left:0;
+}/* phones */
+picture>img {
+margin:0;
+max-width:350px;
+padding:0;
+}/* phones */
+
+.agr-grid {
+-ms-grid-columns:1fr;
+-ms-grid-rows:auto auto;
+display:-ms-grid;
+display:grid;
+gap:0 0;
+grid-template-columns:minmax(0,1fr);
+grid-template-rows:auto auto;
+width:95%;/* 100 */
+}
+.agr-grid-heykr {
+-ms-grid-columns:1fr 1fr;
+-ms-grid-rows:1fr 1fr;
+display:-ms-grid;
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+/* grid-template-rows: auto, 1fr; INVALID PROPERTY VALUE*/
+grid-auto-rows: minmax(min-content, max-content);
+gap:0 0; /* row col */
+grid-template-areas:"ColOne_Head"
+                    "ColOne_Body"
+                    "ColTwo_Head"
+                    "ColTwo_Body"; /* More for mobile */
+height: 100%;
+width:100%;
+}
+.agr-grid-heykr div {
+border:1px solid #333;
+padding:.5em
+}
+.item-0 /* for agr-grid NOT agr-grid2 */ {
+background-color:#333333;
+color:#efefef;
+font-weight:bold;
+max-height:7em;
+min-width:0;
+overflow:hidden;/* was clip */
+padding:.5em;
+}
+.item-1 /* for agr-grid NOT agr-grid2 */ {
+font-family:sans-serif;
+max-width:100%;
+min-width:0;
+overflow:clip;/* was hidden */
+}
+.spcr_07 {
+height:.7em;
+margin:0 0 .7em
+}
+.tblceltxt {
+width:98%
+}
+.hbr {
+-webkit-hyphens:manual;
+hyphens:manual;
+}
+.agr-grid-heykr > div:nth-child(1) {
+grid-area:ColOne_Head;
+height:auto;
+order:1; /* mostly for mobile display */
+width:100%
+}
+.agr-grid-heykr > div:nth-child(3) {
+background-color:#efefef;
+grid-area:ColOne_Body;
+height:auto;
+margin:0 auto 1em;
+order:2;
+overflow:clip;/* was hidden */
+width:100%
+}
+.agr-grid-heykr > div:nth-child(2) {
+grid-area:ColTwo_Head;
+height:auto;
+order:3;
+width:100%
+}
+.agr-grid-heykr > div:nth-child(4) {
+background-color:#efefef;
+grid-area:ColTwo_Body;
+height:auto;
+margin:0 auto 1em;
+order:4;
+overflow:clip;/* was hidden */
+width:100%
+}
+body > div.agr-grid-heykr /* for agr-grid-heykr INSIDE A DIV  */ {
+-ms-grid-columns:1fr;
+-ms-grid-rows:1fr;
+align-items:start;
+display:-ms-grid;
+display:grid;
+gap:0 0;
+grid-template-areas:"ColOne_Head"
+                    "ColOne_Body"
+                    "ColTwo_Head"
+                    "ColTwo_Body"; /* More for mobile */
+grid-template-columns:minmax(0,1fr);
+grid-template-rows:1fr;
+height:auto;
+margin:0;
+min-width:324px;
+overflow:clip;/* was hidden */
+padding:0;
+width:98%
+}
+.agr-grid-heykr div.item-1,.agr-grid-heykr div.item-2 {
+background-color:black;
+border:1px solid #333;
+color:#eee;
+font-family:sans-serif;
+font-weight:bold;
+padding:.5em;
+min-width:330px; /* UNCLEAR WHY NEED THIS MUST DEBUG */
+width:100%;
+}
+body > div.agr-grid-heykr > div.item-1 {
+order:1; /* This apparently OVERRULED by css on or near line 541 PREVIOUS */
+}
+body > div.agr-grid-heykr > div.item-3 {
+border:1px solid #333;
+justify-content:center;
+order:2; /* This apparently OVERRULED by css on or near line 541 PREVIOUS */
+}
+body > div.agr-grid-heykr > div.item-2 {
+order:3; /* This apparently OVERRULED by css on or near line 541 PREVIOUS */
+}
+body > div.agr-grid-heykr > div.item-4 {
+border:1px solid #333;
+justify-content:center;
+order:4; /* This apparently OVERRULED by css on or near line 541 PREVIOUS */
+}
+.agr-grid-heykr .responsive {
+height:auto;
+max-width:99%;
+min-width:300px
+}
+.flx-cont-two {
+-ms-flex-align:start;
+-ms-flex-line-pack:stretch;
+-ms-flex-pack:start;
+align-content:stretch;
+align-items:flex-start;
+display:-ms-flexbox;
+display:-webkit-flex;
+display:flex;
+flex-direction:column;
+flex-wrap:nowrap;
+justify-content:flex-start;
+margin-bottom:1.5em;
+max-width:100%
+}
+.flx-itm:nth-child(1) {
+-ms-flex-item-align:stretch;
+-ms-flex-order:0;
+align-self:stretch;
+border-color:gray;
+border-style:solid;
+border-width:1px 1px 0;
+flex:0 0 100%;
+font-weight:600;
+order:0;
+padding:0;
+width:100%
+}
+.flx-itm:nth-child(2) {
+-ms-flex-item-align:stretch;
+-ms-flex-order:1;
+align-self:stretch;
+background-color:#EAF2FB;
+border:1px solid gray;
+flex:0 0 100%;
+order:1;
+padding:0;
+width:100%
+}
+.flx-itm.lefrit-r {
+background-color:#FDD
+}
+.flx-itm.lefrit-r p {
+background-color:inherit
+}
+.flx-cont-two > .flx-itm p {
+-webkit-hyphens:manual;
+hyphens:manual;
+margin:0 0 1rem 0;
+padding:.4em
+}
+.forced_paycut {
+line-height:1.2;
+margin:0 auto 0 0;
+padding-left:0;
+text-align:right;
+width:16em;
+}
+/*figure {}*/
+iframe.ageism_visier {
+aspect-ratio:4 / 5;
+padding-bottom:2em;
+width:clamp(300px, 320px, 600px);
+}/* phones mobile */
+pre {
+font-size:.85em;
+width:95%;
+}
+table {
+display:block
+}
+#page > article > table:nth-child(5) > thead > tr > th:nth-child(2) {
+text-align:center
+}
+thead {
+display:table-header-group;
+min-width:150px;
+width:93%
+}
+tr,td,th {
+display:block!important
+}
+tbody,thead {
+float:left;
+width:100%
+}
+.sitesbuilt tbody,.sitesbuilt thead {
+width:100%
+}
+tr:nth-of-type(odd) {
+background:#eee
+}
+th {
+background:#333;
+color:#efefef;
+font-weight:bold;
+padding:.375em
+}
+.sitesbuilt th {
+background:#333;
+color:#efefef;
+font-weight:bold;
+padding:.125em
+}
+strong {
+border:none;
+}
+li {
+margin-bottom:.5em
+}
+pre {
+line-height:inherit;
+margin-bottom:var(--marbot-phon);
+margin-left:1em;
+white-space:-moz-pre-wrap;
+white-space:-pre-wrap;
+white-space:-o-pre-wrap;
+white-space:pre-wrap;
+word-wrap:break-word;
+}
+td,th {
+border:none;/* was 1px solid #aaa */
+padding:.275em .265em .275em .295em;
+text-align:left
+}
+.lefrit-l {
+background-color:#EAF2FB;
+padding:.5em;
+text-align:left
+}
+.lefrit-r {
+background-color:#FDD;
+padding-left:4em;
+text-align:right
+}
+blockquote {
+display:block;
+margin-block-end:1em;
+margin-block-start:1em;
+margin-inline-end:13px;
+margin-inline-start:13px
+}
+blockquote:has('"') {
+font-style:italic;
+}
+blockquote.fulw {
+max-width:70ch; /* was 80 */
+width:85%
+}
+blockquote.fulw p {
+max-width:70ch; /* was 80 */
+width:100%
+}
+.sitesbuilt {
+border:none;
+border-collapse:collapse;
+display:table;
+font-family:'Courier New',monospace;
+font-size:.85em;
+font-weight:700;
+table-layout:fixed;
+width:100%
+}
+.sitesbuilt td {
+background-color:#fefefe;
+border:1px solid silver
+}
+.sitesbuilt > thead > tr > td {
+border:none;
+}
+.sitesbuilt tbody tr td {
+padding-right:.35em
+}
+.sitesbuilt tbody tr td:nth-child(2) {
+padding-right:.35em;
+text-align:right
+}
+.sitesbuilt thead {
+background-color:#333;
+border:none;
+column-span:all;
+padding:.35em
+}
+.ital {
+font-style:italic
+}
+.justred {
+color:#CC0000
+}
+.forced_paycut {
+font:inherit;
+line-height:1.2;
+margin:0 auto 0 0;
+padding-left:0;
+text-align:right;
+width:100%
+}
+p,li,h1,h2,h3,h4 {
+-ms-hyphens:manual;
+-webkit-hyphens:manual;
+hyphens:manual;
+}
+body>li, body>h1, body>h2, body>h3, body>h4 {
+  -ms-hyphens:manual;
+  -webkit-hyphens:manual;
+  hyphens:manual;
+  margin-top:.9em;
+  max-width:96vw;
+  width:70ch; /* was 80 */
+  }
+.chkmail {
+width:clamp(346px,93vw,776px);
+height:auto;
+}
+.clearfix::after {
+clear:both;
+content:"";
+display:table
+}
+/* managing-vertical-margins-in-css */
+article > * + * {
+   margin-bottom:1em;
+   margin-top:0;
+ }  /* Phones */
+h1, h2, h3, h4 {
+  margin-bottom:1em;
+}  /* Phones */
+article > h2 + h3, article > h3 + h4, article > h4 + h5 {
+   margin-bottom:1em;
+   margin-top:0;
+ }  /* Phones */
+}
+
+@media only screen and (min-width:768px) and (max-width:1600px) { /* TABLETS was (min-width:768px)(max-width:1024px) */
+html, body {
+height:100%;/* COYIER'S CODE STICKY FOOTER */
+}
+body {
+color:#333;
+display:flex;
+flex-direction:column;
+font-family:Arial, Helvetica, sans-serif;
+font-size:1em;
+font-size:clamp(1em, 0.13vw + 0.97em, 1.13em);
+font-weight:500;
+height:auto;
+line-height:clamp(1.3, 1.4, 1.5);
+margin:0;
+min-height:100vh;
+padding:0em 1.4em .3em 1.8em;
+text-align:left;
+}
+#phone_only {
+display:none;
+}
+#main {
+background-color:transparent;
+display:block;
+/*height:8400px;*//* <-- ROGUE CODING OR HACK MAYBE ? ========= */
+margin:0 auto 0 1rem;
+min-height:100vh;
+min-width:360px;
+padding:0;
+position:relative;
+width:95%;
+}
+#main:focus-visible {
+outline:0;
+}/* 12-31-22 because entire main is not actionable */
+#main>p, #main>img, #main>iframe {
+margin-bottom:var(--marbot-phon);
+margin-left:1rem;
+}
+
+#main>div {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+#main>ol, #main>ul {/* separate from above because lists */
+margin-left:2.5rem;
+}/* TABLET */
+article,section {
+border:0;
+line-height:inherit;
+margin:0;
+padding:0;
+width:auto;
+}
+#main {
+margin:inherit;
+max-width:99%;
+padding:inherit;
+}
+#main:focus-visible {
+outline:0;
+}/* 12-31-22 because entire main is not actionable */
+/* START TABLE SECTION FOR TABLETS = = = = = = START TABLE SECTION FOR TABLETS */
+#main>table {
+margin-bottom:var(--marbot-phon);/* standard marg bott esp for vert flow on phones */
+margin-left:1em;
+margin-right:auto;
+max-width:100%;
+min-width:90%;
+}
+#main>figure {
+margin-left:1em;
+}
+
+#main>.aspr300-169 {
+aspect-ratio:300 / 169;
+max-width:300px;
+}/* tablet and larger */
+
+picture {}/* tablet */
+picture>img {
+margin:0;
+max-width:668px;
+padding:0;
+}/* tablet */
+
+h1 {
+margin:0 auto 1rem 1rem;
+  } /* TABLET and LAPTOP */
+h2 {
+margin:0 auto 1rem 1rem;
+} /* TABLET and LAPTOP */
+h3 {
+margin:0 auto 1rem 1rem;
+} /* TABLET and LAPTOP */
+p.h3_fake {
+margin:0.7rem 0rem 0.7rem 0rem;/* */
+} /* TABLET and LAPTOP */
+h1.deck, h2.deck, h3.deck, h4.deck {
+margin:0 auto 1rem 1rem;
+}
+.kicker {
+margin:0 auto 0 1rem;
+} /* TABLET and LAPTOP */
+h4 {
+margin:0 auto 1rem 1rem;
+} /* TABLET and LAPTOP */
+h5 {
+margin:0 auto 1rem 1rem;
+} /* TABLET and LAPTOP */
+#main div.kicker {
+margin:.9rem auto .01rem 1rem;
+} /* TABLET and LAPTOP */
+
+.item-0 /* for agr-grid NOT agr-grid2 ONLY PART MALFUNCTIONING ON TABLE BETWEEN PHONES AND DESKTOP */ {
+background-color:#333333;
+color:#efefef;
+font-weight:bold;
+max-height:7em;
+min-width:0;
+overflow:hidden;/* was clip */
+padding:.5em;
+}
+
+table {
+display:table
+}
+tr {
+display:table-row
+}
+th {
+display:table-cell
+}
+table {
+border-collapse:collapse;
+max-width:100%
+}
+td,th {
+border:1px solid #aaa;
+padding:.375em;
+text-align:left
+}
+table,td,th {
+font-size:inherit
+}
+header h1 {
+    font-size: 2.8rem;
+    font-size: clamp(2.8rem, 1.66vw + 2.7rem, 4.25rem);
+    margin: 0.9rem auto var(--marbot-phon) 1rem;
+}  /* TABLET and LAPTOP */
+#main>table.finaloss {
+width:80%;
+width:762px;
+}   /* TABLET and LAPTOP */
+.finaloss > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) {
+width:10%;
+}
+.finaloss > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) {
+width:90%;
+}
+td p, div p {
+  max-width: 100%;
+  width: 66ch;
+}  /* TABLET and LAPTOP */
+#main #irs_analysis > div > p {
+width:auto;
+}
+.rgt {
+float:right;
+margin:.2em 0 0 .8em;
+max-width:100%;
+padding:0;
+width:auto;
+}
+.lft {
+float:left;
+margin:.2em .8em 0 0;
+max-width:100%;
+padding:0;
+width:auto;
+}
+.sitesbuilt {
+border:none;
+border-collapse:collapse;
+font-family:'Courier New',monospace;
+font-size:.85em;
+font-weight:700;
+width:auto
+}
+.sitesbuilt caption {
+background-color:#fefefe;
+width:auto
+}
+.sitesbuilt thead {
+background-color:#fefefe;
+border:none;
+column-span:all;
+padding:.15em
+}
+.sitesbuilt td {
+background-color:#fefefe;
+border:none;
+padding:.15em
+}
+blockquote {
+max-width:60ch; /* was 70 */
+width:75%
+}
+blockquote:has('"') {
+  font-style:italic;
+}
+blockquote.fulw * {
+max-width:70ch; /* was 80 */
+width:100%
+}
+tr:nth-of-type(odd) {
+background:#eee
+}
+th {
+background:#333;
+color:#fefefe;
+font-weight:bold
+}
+.lefrit-l {
+background-color:#EAF2FB;
+padding:.8em;
+text-align:left
+}
+.lefrit-r {
+background-color:#FDD;
+padding-left:12em;
+text-align:right
+}
+table#additions {
+width: 80%;         /* required for 'fixed' */
+width: 762px;  /* required for 'fixed' */
+table-layout: fixed;
+}
+#additions > thead > tr > th:nth-child(1) {
+width:20%;/* was 25% */
+}
+#additions > thead > tr > th:nth-child(2) {
+width:80%;
+}
+/* END TABLE SECTION FOR TABLETS = = = = = = END TABLE SECTION FOR TABLETS */
+.agr-grid-heykr {
+-ms-grid-template-columns:repeat(2,1fr);
+align-items:start;
+display:-ms-grid;
+display:grid;
+gap:0 16px;
+grid-template-areas:"ColOne_Head ColTwo_Head" "ColOne_Body ColTwo_Body";
+grid-template-columns:repeat(2,1fr);
+height:auto; /* was 400px */
+margin-bottom:2em;
+max-width:900px;
+min-width:350px
+}
+.agr-grid-heykr div.item-1,.agr-grid-heykr div.item-2 {
+background-color:black;
+border:1px solid #333;
+color:#eee;
+font-family:sans-serif;
+font-weight:bold;
+padding:.5em;
+min-width:330px; /* UNCLEAR WHY NEED THIS MUST DEBUG */
+width:100%;
+}
+.agr-grid-heykr {
+-ms-grid-template-columns:repeat(2,1fr);
+align-items:start;
+display:-ms-grid;
+display:grid;
+gap:0 16px;
+grid-template-areas:"ColOne_Head ColTwo_Head" "ColOne_Body ColTwo_Body";
+grid-template-columns:repeat(2,1fr);
+height:auto; /* was 400px */
+margin-bottom:2em;
+max-width:780px;
+min-width:350px
+}
+.agr-grid-heykr div.item-1,.agr-grid-heykr div.item-2 {
+background-color:black;
+border:1px solid #333;
+color:#eee;
+padding:.5em;
+width:auto; /* was 350px */
+}
+.agr-grid-heykr div.item-3,.agr-grid-heykr div.item-4 {
+background-color:#efefef;
+border:1px solid #333;
+width:auto; /* was 350px */
+}
+.agr-grid-heykr .item-1 {
+grid-area:ColOne_Head
+}
+.agr-grid-heykr .item-2 {
+grid-area:ColTwo_Head
+}
+.agr-grid-heykr .item-3 {
+grid-area:ColOne_Body
+}
+.agr-grid-heykr .item-4 {
+grid-area:ColTwo_Body
+}
+.flx-cont-two {
+-ms-flex-align:start;
+-ms-flex-line-pack:stretch;
+-ms-flex-pack:start;
+align-content:stretch;
+align-items:flex-start;
+display:-ms-flexbox;
+display:-webkit-flex;
+display:flex;
+flex-direction:row;
+flex-wrap:nowrap;
+justify-content:flex-start;
+margin-bottom:1.5em;
+max-width:100%;
+}
+.flx-itm:nth-child(1) {
+-ms-flex-item-align:stretch;
+-ms-flex-order:0;
+align-self:stretch;
+border-color:gray;
+border-style:solid;
+border-width:1px 0 1px 1px;
+flex:0 0 25%;
+font-weight:600;
+order:0;
+padding:0;
+width:25%;/* was 20 */
+}
+.flx-itm:nth-child(2) {
+-ms-flex-item-align:stretch;
+-ms-flex-order:1;
+align-self:stretch;
+background-color:#EAF2FB;
+border:1px solid gray;
+flex:0 0 75%;
+order:1;
+padding:0;
+width:75%;/* was auto */
+}
+.flx-itm.lefrit-r {
+background-color:#FDD
+}
+.flx-itm.lefrit-r p {
+background-color:inherit
+}
+.flx-itm:nth-child(2) span {
+max-width:70ch; /* was 80 */
+}
+div.flx-cont-two > div.flx-itm p {
+  -webkit-hyphens:manual;
+  hyphens:manual;
+margin:.6em;
+/* padding:.6em; bad idea */
+width:95%;
+max-width:70ch;
+ }/* TABLET and LAPTOP */
+p,li,h1,h2,h3,h4 {
+-ms-hyphens:manual;
+-webkit-hyphens:manual;
+hyphens:manual;
+}
+p {
+margin:.5em auto var(--marbot-phon) 1em;
+max-width:70ch;
+width:100%;
+}
+/* PDF DISPLAY START */
+#main>details, #main details {
+margin:0 .7rem var(--marbot-phon) 2rem;/* VAR is for vertical flow on phones */
+width:clamp(320px, 600px, 610px);
+}/* tablets */
+#main summary {
+width:clamp(320px, 100%, 610px);
+}
+#main:focus-visible {
+outline:0;
+}/* 1-3-23 because entire main is not actionable */
+iframe.ageism_visier {
+aspect-ratio:4 / 5;
+width:clamp(320px, 600px, 610px);
+}/* PDF END */
+/* START ECKLES BACK TO TOP */
+#main>.back-to-top-wrapper {
+top:150vh;/* How far scroll travel within <main> prior to link appearing */   /* TABLET and LAPTOP */
+height:80%;/* was 91% TOO MUCH */
+ }
+/* END ECKLES BACK TO TOP */
+article>#main.content {
+ flex:1 0 auto; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+  padding: 20px;
+}
+footer.footer {
+  flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+  margin-top:160px;/* was 500px KP for breakage */
+  padding: 20px;
+}/* TABLET and DESKTOP */
+footer div.copyright {
+line-height: inherit;
+margin: 0 auto;
+padding: 0;
+position: inherit;
+text-align: center;
+width:100%;
+}
+#main>details.mystory[open] {
+margin-bottom:2056px;
+}
+}
+@media only screen and (min-width: 1601px) {  /* WAS 1025 DESKTOPs */
+html,body {
+height:100%;
+}
+body {
+color:#333;
+display:flex;
+flex-direction:column;
+font-family:Arial, Helvetica, sans-serif;
+font-size:1em;
+font-size:clamp(1em, 0.13vw + 0.97em, 1.13em);
+font-weight:500;
+height:auto;
+line-height:1.5;
+line-height:clamp(1.3, 1.4, 1.5);
+margin:0;
+min-height:100vh;
+padding:0em 1.4em .3em 1.8em;
+text-align:left;
+}
+#main>p, #main>div, #main>img, #main>iframe {
+margin-bottom:var(--marbot-phon);/* intro new standard esp for vertical flow on phones */
+margin-left:1rem;
+}
+#main>ol, #main>ul {/* separate from above because weird behavior by lists */
+margin-left:2.7rem;
+}
+article,section {
+border:0;
+line-height:inherit;
+margin:0;
+padding:0;
+width:auto;
+}
+#main {
+margin:inherit;
+max-width:99%;
+padding:inherit;
+}
+#main:focus-visible {
+outline:0;
+}/* entire main not actionable */
+/* ============= START OF SHOW HIDE ACCORDION ====================== */
+#main>details, #main details {
+margin:0 .7rem var(--marbot-phon) 2rem;/* VAR is for vertical flow on phones */
+width:90%;/* ? */
+}
+#main details {
+background: transparent;
+box-sizing: border-box;
+margin-top: 5px;
+max-width:70ch;
+width:clamp(300px, 100%, 600px);
+}
+#main details summary, #main details summary * {
+cursor:pointer;
+}/* IMPORTANT */
+#main details summary > * {/* CONTENTS of summary are inline NOT the summary itself */
+  display:inline;
+}/* IMPORTANT */
+#main details summary:hover {
+background-color:#EFEFEF;
+}
+#main details summary:active {
+background-color:#CEDFFF;
+}
+#main summary {
+background: transparent;
+display:list-item;
+padding:.25em;
+max-width:91vw;
+text-decoration:underline;
+width:65ch; /* was 80 */
+}/* DESKTOP */
+/* details summary::-webkit-details-marker NOT USEFUL */
+#main details .content_acc figcaption {
+-webkit-hyphens: auto;
+-moz-hyphens:auto;
+display:block;
+hyphens:auto;
+width:100%;
+}
+#main>summary::before {/* adding greater-than combinator got rid of phantom marker at page top */
+content: "";
+display:list-item;
+position: absolute;
+left: 1em;
+top:.65em;
+transform: rotate(0);
+transform-origin: 0.2em 50%;
+transition: 0.25s transform ease;
+  }
+#main>details[open] > summary::before {
+transform: rotate(90deg);
+transition: 0.25s transform ease;
+  }
+#main>details[open] summary {
+  text-decoration:none;
+  }
+#main>details.mystory[open] {
+margin-bottom:2056px;
+}
+#main > details > summary::-webkit-details-marker, #main > details > summary::marker, #main > details > summary::before {
+text-decoration:none;
+}/* added for Firefox */
+details[open] {
+  --bg: rgb(0 0 0 / 0.2);
+  background: var(--bg);
+  margin: 0 0 2rem 2em;
+  border: .5rem solid var(--bg);
+}/* Coyier idea  */
+#main details summary .content_acc {
+border-top: none;
+padding:0 10px 10px 10px;
+  }/* ======================== END OF SHOW HIDE ACCORDION */
+/* PDF DISPLAY START */
+#main>details, #main details {
+margin:0 .7rem var(--marbot-phon) 2rem;/* VAR is for vertical flow on phones */
+width:clamp(320px, 600px, 610px);
+}/* tablets */
+#main summary {
+width:clamp(320px, 100%, 610px);
+}
+#main:focus-visible {
+outline:0;
+}/* 1-3-23 because entire main is not actionable */
+iframe.ageism_visier {
+aspect-ratio:4 / 5;
+width:clamp(320px, 600px, 610px);
+}/* PDF DISPLAY END */
+#main>.back-to-top-wrapper {
+top:150vh; /* How far scroll travel within <main> prior to link appearing */
+height:95%;/* was auto 2-1-23 */
+  }
+h1 {
+font-size:3em; /* fallback */
+font-size:clamp(3.05em, 1.68vw + 2.72em, 4.73em);
+font-weight:600;
+margin:0 auto 1rem 1rem;
+  } /* DESKTOP === SOMETHING WEIRD WITH REM VS EM ON MARGINS = EM LOOKS WAY TOO BIG */
+h2 {
+font-size:2.5em; /* fallback */
+font-size:clamp(2.44em, 1.11vw + 2.22em, 3.55em);
+font-weight:600;
+margin:0 auto 1rem 1rem;
+} /* DESKTOP */
+h3 {
+  font-size:2em; /* fallback */
+  font-size:clamp(1.95em, 0.71vw + 1.81em, 2.66em);
+font-weight:600;
+margin:0 auto 1rem 1rem;
+} /* PHONES */
+p.h3_fake {
+font-size:2em; /* fallback */
+font-size:clamp(1.95em, 0.71vw + 1.81em, 2.66em);
+font-weight:600;
+line-height:1.2em;
+margin:0.7rem 0rem 0.7rem 0rem;/* NOT SURE STATUS ON THIS 'FAKE' ITEM MARGINS = EM LOOKS WAY TOO BIG */
+padding:0;
+} /* DESKTOP */
+h1.deck, h2.deck, h3.deck, h4.deck {
+font-weight:600;
+margin:0 auto 1rem 1rem;
+}
+.kicker {
+font-size:1em;
+margin:0 auto 0 1rem;
+text-transform:capitalize;
+} /* DESKTOP */
+h4 {
+  font-size:1.5em; /* fallback */
+  font-size:clamp(1.56em, 0.44vw + 1.48em, 2em);
+font-weight:600;
+margin:0 auto 1rem 1rem;
+} /* DESKTOP  */
+h5 {
+  font-size:1.25em; /* fallback */
+  font-size:clamp(1.25em, 0.25vw + 1.2em, 1.5em);
+font-weight:600;
+margin:0 auto 1rem 1rem;
+} /* DESKTOP  */
+#main div.kicker {
+font-size:clamp(1.25rem, 0.25vw + 1.2rem, 1.5rem);
+font-weight:600;
+margin:.9rem auto .01rem 1rem;
+} /* DESKTOP  */
+.rgt {
+float:right;
+margin:.2em 0 0 .8em;
+max-width:100%;
+padding:0;
+/* width:; */
+}
+.lft {
+float:left;
+margin:.2em .8em 0 0;
+max-width:100%;
+padding:0;
+/* width:; */
+}
+div.flx-itm h3 {
+  margin-inline-start: 0px;
+  margin-left:.3em; /* desktop */
+  }
+article td + h3 {
+margin-top:0;
+}/* does not fully address this problem, sloppy spacing dude */
+img.responsive {
+height:auto;
+max-width:100%!important;
+}
+.sitesbuilt tbody tr td:nth-child(1) {
+padding-left:.5em
+}
+.agr-grid {
+-ms-grid-columns:1fr;
+-ms-grid-rows:auto auto;
+border:1px solid #aaa;
+display:-ms-grid;
+display:grid;
+gap:0 0;
+grid-template-columns:minmax(0,1fr); /* this zero 0 value prevents grid bugs */
+grid-template-rows:auto auto;
+margin-left:1rem;/* ANOTHER MARGIN THAT HAS TO BE REM NOT EM */
+}
+div.agr-grid:nth-child(12) {
+  border-top:1px solid #aaa;
+}/* not sure needed */
+#main .agr-grid .item-0.header_empcon {
+padding:.8em
+}
+body>div.agr-grid-heykr {
+  -ms-grid-columns:1fr;
+  -ms-grid-rows:1fr;
+  align-items:start;
+  display:-ms-grid;
+  display:grid;
+  gap:0 16px;
+  grid-template-areas:"ColOne_Head ColOne_Head"
+                      "ColTwo_Body ColTwo_Body"; /* More for desktop etc */
+  grid-template-columns:minmax(0,1fr);
+  grid-template-rows:1fr;
+  height:auto;
+  margin:0;
+  min-width:324px;
+  overflow:clip;/* was hidden */
+  padding:0;
+  width:98%
+  }
+#main .lefrit-l .agr-grid-heykr .item-1 {
+order:1; /* This and below mostly for desktop laptop display */
+  }
+#main .lefrit-l .agr-grid-heykr .item-2 {
+order:3; /* This and below mostly for desktop laptop display */
+  }
+#main .lefrit-l .agr-grid-heykr .item-3 {
+order:2; /* This and below mostly for desktop laptop display */
+  }
+#main .lefrit-l .agr-grid-heykr .item-4 {
+order:4; /* This and below mostly for desktop laptop display */
+  }
+.nopad {
+padding:0
+}
+.limpad {
+margin:.5em auto .5em .7em
+}
+.item-0 {
+background-color:#333333;
+color:#efefef;
+font-weight:bold;
+padding:.5em
+}
+.item-1 {
+font-family:sans-serif
+}
+.spcr_07 {
+height:.7em;
+margin:0 0 .7em
+}
+.tblceltxt {
+width:98%
+}
+div.towering {
+max-width:78%;
+}
+pre {
+font-size:.85em;
+width:95%!important
+}
+.lefrit-l {
+background-color:#EAF2FB;
+padding:.8em;
+text-align:left
+}
+.lefrit-l-b {
+    background-color: #F6FCF4;
+    padding: 0.8em;
+    text-align: left;
+}
+.lefrit-r {
+background-color:#FDD;
+padding:.5em .5em .5em 12em;
+text-align:right
+}
+.ital {
+font-style:italic
+}
+.justred {
+color:#CC0000
+}
+.forced_paycut {
+font:inherit;
+line-height:1.2;
+margin:0 auto 0 0;
+padding-left:0;
+text-align:right;
+width:28em
+}
+table {
+display:table
+}
+tr {
+display:table-row
+}
+th {
+display:table-cell
+}
+table {
+border-collapse:collapse;
+max-width:98%
+}
+td,th {
+border:1px solid #aaa;
+padding:.375em;
+text-align:left
+}
+table,td,th {
+font-size:inherit
+}
+.sitesbuilt {
+border:none;
+border-collapse:collapse;
+font-family:'Courier New',monospace;
+font-size:.85em;
+font-weight:700;
+width:auto
+}
+.sitesbuilt caption {
+background-color:#fefefe;
+width:auto
+}
+.sitesbuilt thead {
+background-color:#fefefe;
+border:none;
+column-span:all;
+padding:.15em
+}
+.sitesbuilt td {
+background-color:#fefefe;
+border:none;
+padding:.15em
+}
+blockquote {
+max-width:60ch; /* was 70 */
+width:75%
+}
+blockquote:has('"') {
+  font-style:italic;
+}
+blockquote.fulw * {
+max-width:65ch; /* was 80 */
+width:100%
+}
+tr:nth-of-type(odd) {
+background:#eee
+}
+th {
+background:#333;
+color:#fefefe;
+font-weight:bold
+}
+/* ============= START OF SHOW HIDE ACCORDION ====================== */
+#main>details, #main > div > div > details {
+margin:0 .7rem var(--marbot-phon) 1rem;/* VAR is for vertical flow on phones */
+padding:0 1.3em 0 .7em;
+width:95%;
+} /* DESKTOP */
+/* ======================== END OF SHOW HIDE ACCORDION */
+/* COYIERS CODE STICKY FOOTER comb with html,body and body above */
+article>#main.content {
+ flex:1 0 auto; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+  padding: 20px;
+}
+footer.footer {
+  flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+  margin-top:500px;/* KP for breakage */
+  padding: 20px;
+ }
+}
+/* Coyer: keep px size adjustments at the document level so you can make easy/efficient sweeping size changes. But then each module [article, sidebar, footer] on the page has a font-size set in rem. Actual text elements (h1, h2, p, li, whatever), if you size them at all, are sized in em, and thus become relative to the module. This way you can adjust font-size at a module level [article, sidebar, footer], which is pretty easy. The chances the type within a single module have good proportions and can scale together nicely is high. */
